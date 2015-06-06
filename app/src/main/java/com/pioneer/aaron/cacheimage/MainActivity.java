@@ -17,9 +17,9 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*AsyncImageLoader imageLoader = new AsyncImageLoader();
-        imageLoader.loadImage(imgUrl, (ImageView) findViewById(R.id.imageView));*/
-        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
+        AsyncImageLoader imageLoader = new AsyncImageLoader();
+        imageLoader.loadImage(imgUrl, (ImageView) findViewById(R.id.imageView));
+        /*DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
                 .cacheOnDisk(true)
                 .cacheInMemory(true)
                 .build();
@@ -29,7 +29,7 @@ public class MainActivity extends ActionBarActivity {
 
         ImageLoader imageLoader = ImageLoader.getInstance();
         imageLoader.init(imageLoaderConfiguration);
-        imageLoader.displayImage(imgUrl, (ImageView) findViewById(R.id.imageView));
+        imageLoader.displayImage(imgUrl, (ImageView) findViewById(R.id.imageView));*/
 
     }
 

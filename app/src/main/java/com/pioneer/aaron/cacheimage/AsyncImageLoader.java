@@ -7,6 +7,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Environment;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.ImageView;
 
 import java.io.BufferedOutputStream;
@@ -30,6 +31,7 @@ public class AsyncImageLoader {
     private final String path = Environment.getExternalStorageDirectory().getPath() + "/theCache";
 
     public void loadImage(String imageUrl, final ImageView imageView) {
+//        set default image res while loading
         if (null == imageView.getMatrix()) {
             imageView.setImageResource(R.drawable.loading);
         }
@@ -113,14 +115,17 @@ public class AsyncImageLoader {
 //                check whether global cache file exists, if not, make directory
                 if (!theCache.exists()) {
                     theCache.mkdir();
+                    Log.d("DEBUG", "theCache dir created");
 //                check whether image cache file exists, if not, make directory
                 } else if (!imgCache.exists()) {
                     imgCache.mkdir();
+                    Log.d("DEBUG", "imgCache created");
                 }
             }
 //            check whether the image file exists
             if (!file.exists()) {
                 file.createNewFile();
+                Log.d("DEBUG", "image file created");
             }
 
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
@@ -143,7 +148,7 @@ public class AsyncImageLoader {
         Bitmap bitmap = null;
 //        get image path on SD card
         String imgSDCardPath = path + "/image/"
-                + imageUrl.substring(imageUrl.lastIndexOf("/") + 1, imageUrl.length()).toLowerCase();
+                + imageUrl.substring(imageUrl.lastIndexOf("/") + 1, imageUrl.length());
         File file = new File(imgSDCardPath);
 //        check whether the image file exists or not
         if (!file.exists()) {
