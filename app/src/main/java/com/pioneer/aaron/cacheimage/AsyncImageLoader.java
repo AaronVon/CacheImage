@@ -133,7 +133,7 @@ public class AsyncImageLoader {
     }
 
     public interface ImageCallback {
-        public void imageLoaded(Drawable imageDrawable);
+        void imageLoaded(Drawable imageDrawable);
     }
 
     /**
@@ -151,7 +151,7 @@ public class AsyncImageLoader {
         } else {
             bitmap = BitmapFactory.decodeFile(imgSDCardPath, null);
             if (null != bitmap || bitmap.toString().length() > 3) {
-                Drawable drawable = new BitmapDrawable(Resources.getSystem(), bitmap);
+                Drawable drawable = new BitmapDrawable(bitmap);
                 return drawable;
             } else {
                 return null;
