@@ -1,3 +1,5 @@
-# CacheImage
-using RAM and SD card cache to display some res in purpose of enhancing performance and offline functionality
-使用Handler+ExecutorService(线程池)+MessageQueue模式+缓存模式 实现的图片缓存，当然可以换成其他文件的缓存
+README
+使用Executors.newFixedThreadPool(5/*poolSize*/)
+固定了5个线程来执行异步操作，
+但是由于网络费时，会出现性能瓶颈，掉帧等情况。
+并且 listview 会有图片错乱的问题。

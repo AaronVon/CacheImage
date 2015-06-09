@@ -112,6 +112,7 @@ public class AsyncImageLoader {
             if (SDCardExist) {
                 File theCache = new File(path);
                 File imgCache = new File(path + "/image");
+                Log.d("EXTERNAL_STORAGE", path);
 //                check whether global cache file exists, if not, make directory
                 if (!theCache.exists()) {
                     theCache.mkdir();
